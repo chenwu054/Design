@@ -1,0 +1,26 @@
+/*
+
+design activity broadcast like facebook
+when friend f1 updates a message，all his friends can see this message。
+requirement：
+1. many friends。
+2. some friends are logged in and other are offline; those offline friends can  see it when they log on.
+3. limited storage, how to do it.
+*/
+class Person{
+	/*
+		Every person has his own event list, which is simply a list for 
+	*/
+	EventListNode head, tail;
+	/*
+		lists 里存的是上一次登录的时候friend的最近的更新
+		所以这次登录的时候，就从friend的tail开始往前查
+		知道上次更新的地方之后。
+		
+		lists stores the latest event of all friends when the current person logged on last time.
+		therefore, when this person logs on this time, it will go from the tail of his friends' list and visit backwards
+		till he reaches the last event.
+	*/
+	HashMap<Person,EventListNode> lists;
+	
+}
